@@ -1,7 +1,5 @@
 'use strict';
-
 /*
-
 Task #1:
 - Using Object.assign(), create an object "moreLanguages" that combines the following key/value pairs with the existing object "languages":
 
@@ -11,14 +9,12 @@ Task #1:
   }
 
 Logging "moreLanguages" should print:
-
   {
     Celtic: [ 'Welsh', 'Irish', 'Breton' ],
     AfroAsiatic: [ 'Hebrew', 'Somali', 'Oromo' ],
     isolates: [ 'Korean', 'Basque' ],
     Germanic: [ 'Swedish', 'Danish', 'English' ]
   }
-
 */
 
 let languages = {
@@ -26,10 +22,24 @@ let languages = {
   AfroAsiatic: ["Hebrew", "Somali", "Oromo"]
 };
 
+let addLanguages = {
+  isolates: ["Korean", "Basque"],
+  Germanic: ["Swedish", "Danish", "English"]
+};
+
 //Write task #1 code below
 
+//this works
+let moreLanguages = Object.assign({}, languages, {
+    isolates: ["Korean", "Basque"],
+    Germanic: ["Swedish", "Danish", "English"]
+  });
 
+//and this works if addLanguages object set to variable
+let moreLanguages2 = Object.assign({}, languages, addLanguages);
 
+console.log(moreLanguages);
+console.log(moreLanguages2);
 
 /*
 Task #2
@@ -58,6 +68,8 @@ function Husky() {
 
 // TODO: Use Object.create() in order to extend the superclass with the subclass
 //write code here
+
+Husky.prototype = Object.create(Dog.prototype);
 
 var fido = new Husky();
 
